@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "removeComments": true,
+        "sourceMap": true,
+        "target": "es5",
+        "baseUrl": "./src",
+        "noImplicitAny": true,
+        "jsx": "react"
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}
