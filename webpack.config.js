@@ -25,8 +25,8 @@ module.exports = {
     metadata : metadata,
 
     entry: {
-        app: path.join(paths.src, 'app'),
-        vendor: path.join(paths.src, 'vendor'),
+        app: path.join(paths.src, 'App'),
+        vendor: path.join(paths.src, 'Vendor'),
     },
 
     output: {
