@@ -1,26 +1,19 @@
 import * as React from 'react';
-import { createStore } from 'redux';
-
-let store = createStore(
-    (state:any, action:any) => {
-        switch (action.type) {
-            case 'INCR':
-                return { counter: state.counter + action.by };
-            default:
-                return state;
-        }
-    },
-    { counter: 0 }
-);
 
 export default class Counter extends React.Component<any, any> {
+    
+    context: any;
+
+    static contextTypes = {
+        store: React.PropTypes.object
+    }
 
     private unsubscribe: Function;
-    
+
     componentDidMount() {
-        this.unsubscribe = store.subscribe(() => this.forceUpdate());
+        this.unsubscribe = this.context.store.subscribe(() => this.forceUpdate());
     }
-    
+
     componentWillUnmount() {
         this.unsubscribe();
     }
@@ -29,11 +22,11 @@ export default class Counter extends React.Component<any, any> {
         return (
             <div>
                 <p>
-                    <label>Counter: </label><b>#{store.getState().counter}</b>
+                    <label>Counter: </label><b>#{this.context.store.getState().counter}</b>
                 </p>
-                <button onClick={e => store.dispatch({ type:'INCR', by: 1 }) }>INCREMENT</button>
+                <button onClick={e => this.context.store.dispatch({ type:'INCR', by: 1 }) }>INCREMENT</button>
                 <span style={{ padding: "0 5px" }} />
-                <button onClick={e => store.dispatch({ type:'INCR', by: -1 }) }>DECREMENT</button>
+                <button onClick={e => this.context.store.dispatch({ type:'INCR', by: -1 }) }>DECREMENT</button>
             </div>
         );
     }
