@@ -10,11 +10,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2",
+    "bootstrap": "^3.3.6",
     "jquery": "1.11.3",
     "lodash": "^4.3.0",
-    "bootstrap": "^3.3.6"
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "redux": "^3.6.0"
   },
   "devDependencies": {
     "@types/jquery": "^2.0.32",
