@@ -2,28 +2,19 @@ import './styles/style';
 
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { createStore } from 'redux';
+
+import store from './Store'
 import { Provider } from 'react-redux';
 
 import { Hello } from "./components/Hello";       
-import Counter from "./components/counter/Counter";       
-
-let store = createStore(
-    (state: any, action: any) => {
-        switch (action.type) {
-            case 'INCR':
-                return { counter: state.counter + action.by };
-            default:
-                return state;
-        }
-    },
-    { counter: 0 }
-);
-
+import { Counter } from "./components/Counter/Counter";   
+ 
 ReactDOM.render(
-    //<Hello compiler="TypeScript" framework="React" />,
-    <Provider store={store}>
-        <Counter />
-    </Provider>,
+    <div>
+        <Hello compiler="TypeScript -----++++++ " framework="React" />
+        <Provider store={store}> 
+            <Counter framework='World' label ='hello' /> 
+        </Provider> 
+    </div>,
     document.getElementById("example")
 );
