@@ -1,33 +1,32 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
 
-export default class Counter extends React.Component<any, any> {
-    
-    context: any;
-
-    static contextTypes = {
-        store: React.PropTypes.object
-    }
-
-    private unsubscribe: Function;
-
-    componentDidMount() {
-        this.unsubscribe = this.context.store.subscribe(() => this.forceUpdate());
-    }
-
-    componentWillUnmount() {
-        this.unsubscribe();
-    }
+class Counter extends React.Component<any, any> {
     
     render() {
         return (
             <div>
                 <p>
-                    <label>Counter: </label><b>#{this.context.store.getState().counter}</b>
+                    <label>Counter: </label>
+                    <b>#{this.props.counter}</b>
                 </p>
-                <button onClick={e => this.context.store.dispatch({ type:'INCR', by: 1 }) }>INCREMENT</button>
+                <button onClick={e => this.props.incr() }>INCREMENT</button>
                 <span style={{ padding: "0 5px" }} />
-                <button onClick={e => this.context.store.dispatch({ type:'INCR', by: -1 }) }>DECREMENT</button>
+                <button onClick={e => this.props.decr() }>DECREMENT</button>
             </div>
         );
     }
 }
+
+const mapStateToProps = (state: any) => state;
+
+const mapDispatchToProps = (dispatch: any) => ({
+    incr: () => {
+        dispatch({ type: 'INCR', by: 1 });
+    },
+    decr: () => {
+        dispatch({ type: 'INCR', by: -1 });
+    }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);
