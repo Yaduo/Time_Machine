@@ -2,15 +2,11 @@
 import { createStore } from 'redux'
 import counterReducer from './components/Counter/CounterReducer'
 
-export interface IAppStore {
-    counter:number;
-}
-
-class AppStore implements IAppStore {
+class AppStore {
     counter = 0
 }
 
-function combineReducers(state: IAppStore = new AppStore(), action: any) {
+function combineReducers(state = new AppStore(), action: any) {
     return {
         counter: counterReducer(state.counter, action),
         ggg: {ddd: "asdgasdg", d:"asdgasdge sag"},

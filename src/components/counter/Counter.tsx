@@ -1,7 +1,7 @@
 import './CounterStyle.less';
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { incrCounter, decrCounter } from "./CounterActions";   
+import { CounterAction } from './CounterActions'
 
 // sub-store definition for counter only
 interface CounterState {}
@@ -25,16 +25,15 @@ interface ConnectedDispatch {
 }
 const mapDispatchToProps = (dispatch: any) => ({
     incr: () => {
-        dispatch(incrCounter(1));
+        dispatch(CounterAction.incrCounter(1));
     },
     decr: () => {
-        dispatch(decrCounter(1));
+        dispatch(CounterAction.decrCounter(1));
     }
 } as ConnectedDispatch); // difine the dispatch type
 
 // inject all the Props in to Component
 type CounterProps = ConnectedState  & ConnectedDispatch & ContextProps;
-
 
 /*
  * Counter Component

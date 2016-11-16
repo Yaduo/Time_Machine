@@ -1,35 +1,31 @@
 /*
  * action string
  */
-export const COUNTER_INCR = 'COUNTER_INCR';
-export const COUNTER_DECR = 'COUNTER_DECR';
+export const COUNTER_ACTION_TYPE = {
+    COUNTER_INCR: 'COUNTER_INCR',
+    COUNTER_DECR: 'COUNTER_DECR'
+}
 
 /*
  * action definition
  */
-export interface ICounterAction {
-    type: string;
-    value: number;
-}
+export class CounterAction {
 
-class CounterAction implements ICounterAction {
     type: string;
     value: number;
+
     constructor(type:string, value:number) {
         this.type = type;
-        this.value = value
+        this.value = value;
+    }
+
+    ////// action function 
+    static incrCounter = (value: number) => {
+        // must to return a Plan Object
+        return Object.assign({}, new CounterAction(COUNTER_ACTION_TYPE.COUNTER_INCR, value));
+    }
+    
+    static decrCounter = (value: number) => {
+        return Object.assign({}, new CounterAction(COUNTER_ACTION_TYPE.COUNTER_DECR, value));
     }
 }
-
-/*
- * action export function 
- */
-export function incrCounter(value: number) {
-    // must to return a Plan Object
-    return Object.assign({}, new CounterAction(COUNTER_INCR, value));
-}
-
-export function decrCounter(value: number) {
-    return Object.assign({}, new CounterAction(COUNTER_DECR, value));
-}
-
