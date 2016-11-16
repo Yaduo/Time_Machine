@@ -1,3 +1,4 @@
+
 /*
  * action string
  */
@@ -19,7 +20,8 @@ export class CounterAction {
         this.value = value;
     }
 
-    ////// action function 
+    ////////////////////////// action functions /////////////////////////////////
+
     static incrCounter = (value: number) => {
         // must to return a Plan Object
         return Object.assign({}, new CounterAction(COUNTER_ACTION_TYPE.COUNTER_INCR, value));

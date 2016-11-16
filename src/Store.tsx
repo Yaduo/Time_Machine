@@ -1,19 +1,35 @@
 
 import { createStore } from 'redux'
-import counterReducer from './components/Counter/CounterReducer'
+import { counterReducer }  from './components/Counter/CounterReducer'
+import { aspectRatioReducer, AspectRatioState } from './components/aspectRatio/AspectRatioReducer'
 
-class AppStore {
-    counter = 0
-}
+/*
+ * General App State stucture in the Reducx Store
+ */
+class AppState {
 
-function combineReducers(state = new AppStore(), action: any) {
-    return {
-        counter: counterReducer(state.counter, action),
-        ggg: {ddd: "asdgasdg", d:"asdgasdge sag"},
-        ddd: {p :0,a:2}
+    counter: number;
+    aspectRatio: AspectRatioState;
+
+    constructor() {
+        this.counter = 0
+        this.aspectRatio = new AspectRatioState()
     }
 }
 
-let store = createStore(combineReducers)
+/*
+ *  combine Reducers: 
+ *    - CounterReducer, AspectRatioReducer
+ *    - return AppState
+ */
+function combineReducers(state = new AppState(), action: any): AppState {
+    return {
+        counter: counterReducer(state.counter, action),
+        aspectRatio: aspectRatioReducer(state.aspectRatio, action)
+    }
+}
 
-export default store;
+/**
+ * create store and initialize state by reducers
+ */
+export default createStore(combineReducers);

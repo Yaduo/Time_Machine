@@ -3,25 +3,34 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { CounterAction } from './CounterActions'
 
-// sub-store definition for counter only
-interface CounterState {}
+/**
+ * the current Component State (not store state) definition 
+*/ 
+interface States {}
 
-// the htmlAttributes in CounterComponent 
+
+/**
+ * the htmlAttributes in Component Porps
+*/ 
 interface ContextProps {
-  framework: string,
-  label: string
+    framework: string,
+    label: string
 }
 
-// the props provided by store which will be used in CounterComponent
+/**
+ * the Store state (sub-state) connnected by using Component Porps 
+*/ 
 interface ConnectedState {
-  counter: number 
+    counter: number 
 }
 const mapStateToProps = (state: ConnectedState) => state;
 
-// the props which will be used in CounterComponent to defind the Dispatches
+/**
+ * the Porps which will be used in Component to defind the Dispatches
+*/
 interface ConnectedDispatch {
-  incr: () => void
-  decr: () => void
+    incr: () => void
+    decr: () => void
 }
 const mapDispatchToProps = (dispatch: any) => ({
     incr: () => {
@@ -30,15 +39,17 @@ const mapDispatchToProps = (dispatch: any) => ({
     decr: () => {
         dispatch(CounterAction.decrCounter(1));
     }
-} as ConnectedDispatch); // difine the dispatch type
+} as ConnectedDispatch); // define the dispatch type
 
-// inject all the Props in to Component
-type CounterProps = ConnectedState  & ConnectedDispatch & ContextProps;
+/**
+ * combine the the Store sub-state, Store dispatchs and Context Props in to Component Props
+*/
+type Props = ConnectedState  & ConnectedDispatch & ContextProps;
 
 /*
  * Counter Component
  */
-class CounterComponent extends React.Component<CounterProps, CounterState> {
+class CounterComponent extends React.Component<Props, States> {
     render() {
         return (
             <div className="counter">
@@ -56,6 +67,6 @@ class CounterComponent extends React.Component<CounterProps, CounterState> {
 
 /*
  * exportable 
- * connect Component with sotre
+ * connect Component with sotre and actions
  */
 export const Counter = connect(mapStateToProps, mapDispatchToProps)(CounterComponent) as React.ComponentClass<ContextProps>
