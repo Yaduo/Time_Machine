@@ -12,18 +12,7 @@ var paths = {
   external: path.join(__dirname, './node_modules/'),
 }
 
-var metadata = {
-    title: 'typescript-react',
-    apiUrl: '/',
-    host: 'localhost',
-    port: 8088,
-    exitCode: ""
-}
-
 module.exports = {
-
-    metadata : metadata,
-
     entry: {
         app: path.join(paths.src, 'App'),
         vendor: path.join(paths.src, 'Vendor'),
@@ -37,11 +26,6 @@ module.exports = {
     // Enable sourcemaps for debugging webpack's output.
     devtool: "source-map",
 
-    resolve: {
-        // Add '.ts' and '.tsx' as resolvable extensions.
-        extensions: ["", ".webpack.js", ".web.js", ".ts", ".tsx", ".js"]
-    },
-
     module: {
         loaders: [
             // All files with a '.ts' or '.tsx' extension will be handled by 'ts-loader'.
@@ -50,13 +34,10 @@ module.exports = {
             { test: /\.less$/i, loader: ExtractTextPlugin.extract(['css','less'])},
             { test:/\.(woff2?|eot|ttf|svg)$/, loader: 'url'}
         ],
-
         preLoaders: [
             // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
             { test: /\.js$/, loader: "source-map-loader" }
         ]
-
-
     },
 
     plugins: [
@@ -70,22 +51,7 @@ module.exports = {
             $: "jquery",
             jQuery: "jquery"
         }),
-        /*
-        , new Webpack.optimize.UglifyJsPlugin({
-            beautify: false,
-            mangle: { screw_ie8 : true, keep_fnames: true }, 
-            compress: { screw_ie8: true },
-            comments: false
-        })
-        */  
     ],
-
-    devServer: {
-        port: metadata.port,
-        host: metadata.host,
-        historyApiFallback: true,
-        watchOptions: { aggregateTimeout: 300, poll: 1000 }
-    },
     
     resolve: {
         extensions: prepend(['.js','.ts','.tsx', '.jsx', '.json', '.html', '.css', '.less', '.png', '.jpg', '.jpeg'], '.async'), // ensure .async.ts etc also works

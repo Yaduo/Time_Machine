@@ -1,10 +1,10 @@
-var Webpack = require("webpack");
-var prodConfig = require('./webpack.config.js');
+const Webpack = require("webpack");
+const WebpackConfig = require('./webpack.config.js');
 
-var fs = require('fs');
+const fs = require('fs');
 
-var xml2js = require('xml2js');
-var parser = new xml2js.Parser(); // for parse xml (back end web config file)
+const xml2js = require('xml2js');
+const parser = new xml2js.Parser(); // for parse xml (back end web config file)
 
 // read from production config file to update metadata 
 // TODO: unfinish, waiting for the back end config files
@@ -28,10 +28,10 @@ fs.readFile(__dirname + '/xxxxxxxxxxxxxxxxx.config', function (err, data) {
 */
 
 // TODO: the output path may need to be change
-// prodConfig.output.path = './CheckShopManager/app';
+// prodConfig.output.path = './production/app';
 
 // Uglify
-prodConfig.plugins.push(
+WebpackConfig.plugins.push(
     new Webpack.optimize.UglifyJsPlugin({
         beautify: false,
         mangle: { screw_ie8 : true, keep_fnames: true }, 
@@ -40,4 +40,4 @@ prodConfig.plugins.push(
     })
 );
 
-module.exports = prodConfig;
+module.exports = WebpackConfig;
