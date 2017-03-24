@@ -4,20 +4,20 @@ import { ASPECT_RATIO_ACTION_TYPE, AspectRatioAction } from './AspectRatioAction
 /**
  *  sub-state sturctue for AspectRatio component only
  */
-export class AspectRatioState {
+export interface AspectRatioState {
     width: number;
     height: number;
-    
-    constructor(){
-        this.width = 0;
-        this.height = 0
-    }
 } 
+
+export const initialAspectRatioState = {
+    width: 0,
+    height: 0
+}
 
 /**
  * sub-reducer for AspectRatio
  */
-export function aspectRatioReducer(state = new AspectRatioState() , action: AspectRatioAction): AspectRatioState {
+export function aspectRatioReducer(state = initialAspectRatioState , action: AspectRatioAction): AspectRatioState {
     switch (action.type) {
         case ASPECT_RATIO_ACTION_TYPE.HEIGHT_INCR:
             return { width: state.width, height: state.height + action.value }
