@@ -1,3 +1,4 @@
+import { Action } from '../../Store'
 
 /*
  * action string
@@ -10,7 +11,7 @@ export const HEADER_COUNTER_ACTION_TYPE = {
 /*
  * action definition
  */
-export class HeaderCounterAction {
+export class HeaderCounterAction implements Action {
  
     type: string;
     payload: number;

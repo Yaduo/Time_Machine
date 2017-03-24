@@ -19,5 +19,5 @@ ReactDOM.render(
             </div>
         </Provider> 
     </div>,
-    document.getElementById("example")
+    document.getElementById("app")
 );

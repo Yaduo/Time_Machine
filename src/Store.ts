@@ -3,7 +3,7 @@ import { createStore, applyMiddleware, combineReducers } from "redux"
 import { actionLogger, actionError } from "./Middleware"
 import { headerCounterReducer } from './container/headerCounter/Reducer'
 import { footerCounterReducer } from './container/footerCounter/Reducer'
-import { aspectRatioReducer, AspectRatioState, initialAspectRatioState } from './container/aspectRatio/AspectRatioReducer'
+import { AspectRatioState, aspectRatioReducer } from './container/aspectRatio/AspectRatioReducer'
 
 /*
  * General App State stucture in the Reducx Store
@@ -17,7 +17,7 @@ export interface Action {
 /*
  * General App State stucture in the Reducx Store
  */
-export interface AppState {
+export type AppState = {
     headerCounter: number;
     footerCounter : number,
     aspectRatio: AspectRatioState;

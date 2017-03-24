@@ -1,4 +1,6 @@
 
+import { Action } from '../../Store'
+
 /*
  * action string
  */
@@ -12,14 +14,14 @@ export const ASPECT_RATIO_ACTION_TYPE = {
 /*
  * action definition
  */
-export class AspectRatioAction {
+export class AspectRatioAction implements Action {
 
     type: string;
-    value: number;
+    payload: number;
     
     constructor(type:string, value:number) {
         this.type = type;
-        this.value = value
+        this.payload = value
     }
 
     ////////////////////////// action functions /////////////////////////////////

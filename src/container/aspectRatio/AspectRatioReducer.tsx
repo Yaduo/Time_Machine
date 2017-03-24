@@ -4,12 +4,12 @@ import { ASPECT_RATIO_ACTION_TYPE, AspectRatioAction } from './AspectRatioAction
 /**
  *  sub-state sturctue for AspectRatio component only
  */
-export interface AspectRatioState {
+export type AspectRatioState = {
     width: number;
     height: number;
 } 
 
-export const initialAspectRatioState = {
+const initialAspectRatioState: AspectRatioState = {
     width: 0,
     height: 0
 }
@@ -18,15 +18,32 @@ export const initialAspectRatioState = {
  * sub-reducer for AspectRatio
  */
 export function aspectRatioReducer(state = initialAspectRatioState , action: AspectRatioAction): AspectRatioState {
+    
     switch (action.type) {
         case ASPECT_RATIO_ACTION_TYPE.HEIGHT_INCR:
-            return { width: state.width, height: state.height + action.value }
+            return { 
+                width: state.width, 
+                height: state.height + action.payload 
+            }
+
         case ASPECT_RATIO_ACTION_TYPE.HEIGHT_DECR:
-            return { width: state.width, height: state.height - action.value }
+            return { 
+                width: state.width, 
+                height: state.height - action.payload 
+            }
+
         case ASPECT_RATIO_ACTION_TYPE.WIDTH_DECR:
-            return  { width: state.width - action.value, height: state.height }
+            return  { 
+                width: state.width - action.payload, 
+                height: state.height 
+            }
+
         case ASPECT_RATIO_ACTION_TYPE.WIDTH_INCR:
-            return { width: state.width + action.value, height: state.height }
+            return { 
+                width: state.width + action.payload, 
+                height: state.height 
+            }
+
         default:
             return state
     }

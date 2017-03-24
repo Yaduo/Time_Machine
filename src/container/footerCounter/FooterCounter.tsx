@@ -9,7 +9,6 @@ import { AppState } from 'store'
  * exportable 
  * connect Component with sotre and actions
  */
-
 const mapStateToProps = (state: AppState) => {
     return {
         counter: state.footerCounter
