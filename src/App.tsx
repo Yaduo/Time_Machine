@@ -2,7 +2,7 @@ import './styles/style';
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { Provider } from 'react-redux';
-import * as store from './Store'
+import store from './Store'
 import { Hello } from "./components/Hello";        
 import { HeaderCounter } from './container/headerCounter/HeaderCounter'
 import { FooterCounter } from './container/footerCounter/FooterCounter'
