@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --open --progress",
+    "start": "webpack-dev-server --open --progress --config webpack.dev.config.js",
     "build": "webpack --optimize-minimize --optimize-dedupe --progress --config webpack.production.config.js"
   },
   "author": {
@@ -33,9 +33,9 @@
     "@types/redux": "^3.6.31",
     "copy-webpack-plugin": "^1.1.1",
     "css-loader": "^0.23.1",
-    "extract-text-webpack-plugin": "^1.0.1",
+    "extract-text-webpack-plugin": "^2.0.0",
     "file-loader": "^0.9.0",
-    "html-webpack-plugin": "^2.8.1",
+    "html-webpack-plugin": "^2.26.0",
     "less": "^2.6.0",
     "less-loader": "^2.2.2",
     "node-libs-browser": "^1.0.0",
@@ -47,7 +47,7 @@
     "ts-loader": "^1.0.0",
     "typescript": "^2.0.7",
     "url-loader": "^0.5.7",
-    "webpack": "^1.13.1",
+    "webpack": "^2.2.0",
     "xml2js": "^0.4.17"
   }
 }

@@ -5,17 +5,13 @@ const metadata = {
     title: 'typescript-react',
     apiUrl: '/',
     host: 'localhost',
-    port: 8088,
-    exitCode: ""
+    port: 3000,
 }
 
-WebpackConfig. metadata = metadata
-
 WebpackConfig.devServer = {
+    inline: false,
     port: metadata.port,
-    host: metadata.host,
-    historyApiFallback: true,
-    watchOptions: { aggregateTimeout: 300, poll: 1000 }
+    host: metadata.host
 }
 
 module.exports = WebpackConfig;
