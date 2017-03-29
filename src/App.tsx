@@ -7,7 +7,8 @@ import { Hello } from "./components/Hello";
 import { HeaderCounter } from './container/headerCounter/HeaderCounter'
 import { FooterCounter } from './container/footerCounter/FooterCounter'
 import { AspectRatio } from "./container/aspectRatio/AspectRatio"
- 
+import { DatePicker } from 'antd';
+
 ReactDOM.render(
     <div>
         <Hello compiler="TypeScript -----++++++ " framework="React" />
@@ -17,6 +18,7 @@ ReactDOM.render(
                 <AspectRatio helloFromParentCompoment='hello form parent' label ='test' />
                 <FooterCounter framework='World2 ' label ='hello22222' /> 
             </div>
+            <DatePicker />
         </Provider> 
     </div>,
     document.getElementById("app")
