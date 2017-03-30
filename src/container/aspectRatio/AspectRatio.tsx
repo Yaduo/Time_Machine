@@ -71,7 +71,6 @@ type Props = ConnectedState & ContextProps;
 
 export class AspectRatioComponent extends React.Component<Props, States> {
     render() {
-        console.log(this.props)
         return (
             <div className="aspect-ratio">
                 <div>

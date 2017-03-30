@@ -2,6 +2,7 @@
 
 export const actionLogger = (store: any) => (next: any) => (action: any) => {
     console.log("action fired ", action);
+    console.log("store: ", store.getState());
     next(action) 
 }
 

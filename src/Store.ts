@@ -4,6 +4,7 @@ import { actionLogger, actionError } from "./Middleware"
 import { headerCounterReducer } from './container/headerCounter/Reducer'
 import { footerCounterReducer } from './container/footerCounter/Reducer'
 import { AspectRatioState, aspectRatioReducer } from './container/aspectRatio/AspectRatioReducer'
+import { reusableCounterReducer } from './container/reusableCounter/Reducer'
 
 /*
  * General App State stucture in the Reducx Store
@@ -12,6 +13,7 @@ export interface Action {
     readonly type: string;
     readonly payload?: any;
     readonly meta?: string
+    readonly field?: string // point to a dynamic field in store
 }
 
 /*
@@ -22,7 +24,7 @@ export type AppState = {
     footerCounter : number,
     aspectRatio: AspectRatioState;
 }
- 
+
 /*
  *  combine Reducers: 
  *    - CounterReducer, AspectRatioReducer
@@ -32,6 +34,7 @@ const reducer = combineReducers<AppState>({
     headerCounter: headerCounterReducer,
     footerCounter: footerCounterReducer,
     aspectRatio: aspectRatioReducer,
+    dynamicField: reusableCounterReducer
 })
 
 /**
