@@ -17,8 +17,8 @@ ReactDOM.render(
                 <HeaderCounter framework='World' label ='hello' /> 
                 <AspectRatio helloFromParentCompoment='hello form parent' label ='test' />
                 <FooterCounter framework='World2 ' label ='hello22222' /> 
+                <DatePicker />
             </div>
-            <DatePicker />
         </Provider> 
     </div>,
     document.getElementById("app")
