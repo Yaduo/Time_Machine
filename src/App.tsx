@@ -9,6 +9,7 @@ import { HeaderCounter } from './container/headerCounter/HeaderCounter'
 import { FooterCounter } from './container/footerCounter/FooterCounter'
 import { AspectRatio } from "./container/aspectRatio/AspectRatio"
 import { ReusableCounter } from './container/reusableCounter/ReusableCounter'
+import { ColorWrapper } from './container/colorWrapper/ColorWrapper'
 
 
 ReactDOM.render(
@@ -17,12 +18,36 @@ ReactDOM.render(
         <Provider store={store}> 
             <div>
                 <HeaderCounter framework='World' label ='hello' /> 
-                <AspectRatio helloFromParentCompoment='hello form parent' label ='test' />
                 <FooterCounter framework='World2 ' label ='hello22222' /> 
                 <ReusableCounter framework='reusable counter' label ='container' field='counter1' step={10} />
                 <ReusableCounter framework='reusable counter 2' label ='container' field='counter2' step={5}  />
                 <DatePicker />
+
+                <table>
+                    <tbody>
+                        <tr>
+                            <td style={{ width: 220 }}>
+                                <AspectRatio helloFromParentCompoment='hello form parent' label ='test' />
+                                <ColorWrapper />
+                            </td>
+                            <td style={{ verticalAlign: "top", textAlign: "center", width: 500 }}>
+                                <h2>Preview</h2>
+                                {/*<ShapeMaker />*/}
+                            </td>
+                            <td style={{ verticalAlign: 'bottom' }}>
+                                {/*<ActionPlayer store={store} actions={actions} defaultState={defaultState} />*/}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colSpan={3}>
+                                <h2 style={{ margin: 5, textAlign: 'center' }}>Shapes</h2>
+                                {/*<ShapeViewer />*/}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+           
         </Provider> 
     </div>,
     document.getElementById("app")

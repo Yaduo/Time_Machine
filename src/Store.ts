@@ -5,7 +5,7 @@ import { headerCounterReducer } from './container/headerCounter/Reducer'
 import { footerCounterReducer } from './container/footerCounter/Reducer'
 import { AspectRatioState, aspectRatioReducer } from './container/aspectRatio/AspectRatioReducer'
 import { reusableCounterReducer } from './container/reusableCounter/Reducer'
-
+import { colorWrapperReducer } from './container/colorWrapper/Reducer'
 /*
  * General App State stucture in the Reducx Store
  */
@@ -22,7 +22,9 @@ export interface Action {
 export type AppState = {
     headerCounter: number;
     footerCounter : number,
-    aspectRatio: AspectRatioState;
+    aspectRatio: AspectRatioState,
+    dynamicField: any,
+    colorHex: string // hex color string
 }
 
 /*
@@ -34,7 +36,8 @@ const reducer = combineReducers<AppState>({
     headerCounter: headerCounterReducer,
     footerCounter: footerCounterReducer,
     aspectRatio: aspectRatioReducer,
-    dynamicField: reusableCounterReducer
+    dynamicField: reusableCounterReducer,
+    colorHex: colorWrapperReducer
 })
 
 /**
