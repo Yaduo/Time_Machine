@@ -10,6 +10,7 @@ import { FooterCounter } from './container/footerCounter/FooterCounter'
 import { AspectRatio } from "./container/aspectRatio/AspectRatio"
 import { ReusableCounter } from './container/reusableCounter/ReusableCounter'
 import { ColorWrapper } from './container/colorWrapper/ColorWrapper'
+import { ShapeMaker } from './container/shapeMaker/ShapeMaker'
 
 
 ReactDOM.render(
@@ -32,7 +33,7 @@ ReactDOM.render(
                             </td>
                             <td style={{ verticalAlign: "top", textAlign: "center", width: 500 }}>
                                 <h2>Preview</h2>
-                                {/*<ShapeMaker />*/}
+                                <ShapeMaker />
                             </td>
                             <td style={{ verticalAlign: 'bottom' }}>
                                 {/*<ActionPlayer store={store} actions={actions} defaultState={defaultState} />*/}

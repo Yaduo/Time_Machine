@@ -10,8 +10,8 @@ export type AspectRatioState = {
 } 
 
 const initialAspectRatioState: AspectRatioState = {
-    width: 0,
-    height: 0
+    width: 100,
+    height: 100
 }
 
 /**

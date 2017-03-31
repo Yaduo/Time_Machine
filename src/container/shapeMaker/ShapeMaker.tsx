@@ -1,12 +1,37 @@
 import * as React from "react";
-import { connect } from "react-redux";
+import { connect, Dispatch } from "react-redux";
 import { isDark } from "../../components/picker/ColorPicker";
+import { AppState } from 'Store'
+import { ShapeMakerAction } from './Actions'
 
-class ShapeMaker extends React.Component<any, any> {
+type States = {
+    top:number,
+    left:number
+}
+
+export type ContextProps = { }
+
+export type ConnectedState = {
+    width: number, 
+    height: number, 
+    color: string,
+    top: number, 
+    left: number
+}
+
+export type ConnectedDispatch = {
+    add(color:string, height:number, width:number, top:number, left:number): void
+}
+
+type Props = ConnectedState & ConnectedDispatch & ContextProps;
+
+class ShapeMakerComponent extends React.Component<Props, States> {
+
     constructor(props?: any, context?: any) {
         super(props, context);
         this.state = { top: props.top, left: props.left };
     }
+
     render() {
         var width = this.props.width, height = this.props.height, background = this.props.color;
         const color = isDark(background) ? '#fff' : '#000';
@@ -22,12 +47,12 @@ class ShapeMaker extends React.Component<any, any> {
                 <div>
                     <p>
                         <label>position: </label>
-                        <input style={{ width: 30 }} defaultValue={this.props.top} onChange={e => this.handleTop(e) } />
+                        <input style={{ width: 30 }} defaultValue={this.props.top.toString()} onChange={e => this.handleTop(e) } />
                         <span>, </span>
-                        <input style={{ width: 30 }} defaultValue={this.props.left} onChange={e => this.handleLeft(e) } />
+                        <input style={{ width: 30 }} defaultValue={this.props.left.toString()} onChange={e => this.handleLeft(e) } />
                     </p>
 
-                    <button onClick={e => this.props.addShape(background, height, width, this.state.top, this.state.left) }>
+                    <button onClick={e => this.props.add(background, height, width, this.state.top, this.state.left) }>
                         Add Shape
                     </button>
                 </div>
@@ -37,23 +62,40 @@ class ShapeMaker extends React.Component<any, any> {
     handleTop(e: any) {
         var top = parseInt(e.target.value);
         if (!isNaN(top))
-            this.setState({ top });
+            this.setState({ 
+                top: top,
+                left: this.state.left
+            });
     }
     handleLeft(e: any) {
         var left = parseInt(e.target.value);
         if (!isNaN(left))
-            this.setState({ left });
+            this.setState({ 
+                top: this.state.top,
+                left 
+            });
     }
 }
 
-export default connect(
-    (state) => ({
-        width: state.width, height: state.height, color: state.color,
-        top: state.nextShapeId * 10, left: state.nextShapeId * 10
-    }),
-    (dispatch) => ({
-        addShape: (color, height, width, top, left) => {
-            dispatch({ type: 'SHAPE_ADD', height, width, color, top, left });
-        }
-    })
-)(ShapeMaker);
+/*
+ * exportable 
+ * connect Component with sotre and actions
+ */
+const mapStateToProps = (state: AppState) => {
+    return {
+        width: state.aspectRatio.width, 
+        height: state.aspectRatio.height, 
+        color: state.colorHex,
+        top: state.shapeMaker.nextShapeId * 10, 
+        left: state.shapeMaker.nextShapeId * 10 
+    } as ConnectedState
+} 
+
+const mapDispatchToProps = (dispatch: Dispatch<ConnectedDispatch>) => ({
+    add: (color:string, height:number, width:number, top:number, left:number) => {
+        dispatch(ShapeMakerAction.addShape(color, height, width, top, left));
+    }
+}); 
+
+export const ShapeMaker = connect(mapStateToProps, mapDispatchToProps)(ShapeMakerComponent) as React.ComponentClass<ContextProps>
+
