@@ -30,7 +30,7 @@ module.exports = {
         new ExtractTextPlugin('style.css'),
         new CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.bundle.js' }),
         new CopyWebpackPlugin([
-            { from: path.join(paths.src, 'assets'), to: 'assets' },
+            { from: path.join(paths.src, 'Assets'), to: 'assets' },
             //{ from: path.join(paths.external, 'bootstrap/dist/fonts'), to: 'assets/fonts' }
         ]),
         new HtmlWebpackPlugin({ template: path.join(paths.src, 'index.html') }),
