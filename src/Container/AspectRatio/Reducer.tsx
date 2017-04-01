@@ -6,23 +6,23 @@ export const initialAspectRatioState: AppStore.AspectRatioState = {
     height: 100
 }
 
-export function aspectRatioReducer(state:any, action: AppStore.Action) {
+export function aspectRatioReducer(state:any, action: AppStore.Action): AppStore.AppState {
     console.log('aspectRatioReducer', state)
     switch (action.type) {
         case ASPECT_RATIO_ACTION_TYPE.HEIGHT_CHANGE:
-            return {
-                aspectRatio: {
-                    width: state.aspectRatio.width , 
-                    height: state.aspectRatio.height + action.payload,
-                }
-            }
+            return Object.assign({}, state, 
+                { 
+                    aspectRatio: {
+                        width: state.aspectRatio.width , 
+                        height: state.aspectRatio.height + action.payload,
+                }});
         case ASPECT_RATIO_ACTION_TYPE.WIDTH_CHANGE:
-            return {
-                aspectRatio: {
-                    width: state.aspectRatio.width + action.payload, 
-                    height: state.aspectRatio.height 
-                }
-            }
+            return Object.assign({}, state, 
+                { 
+                    aspectRatio: {
+                        width: state.aspectRatio.width + action.payload, 
+                        height: state.aspectRatio.height 
+                }});
         default:
             return state
     }
