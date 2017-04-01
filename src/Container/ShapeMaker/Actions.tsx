@@ -7,15 +7,23 @@ export const SHAPE_MAKER_ACTION_TYPE = {
     
 } 
 
+type Payload = {
+    color: String,
+    height: number,
+    width: number,
+    top: number,
+    left: number
+}
+
 /*
  * action definition
  */
 export class ShapeMakerAction {
 
     type: string;
-    payload: string;
+    payload: Payload;
     
-    constructor(type:string, payload:any) {
+    constructor(type:string, payload:Payload) {
         this.type = type;
         this.payload = payload
     }
@@ -23,7 +31,7 @@ export class ShapeMakerAction {
     ////////////////////////// action functions /////////////////////////////////
 
     static addShape = (color:string, height:number, width:number, top:number, left:number) => {
-        let payload = {
+        const payload:Payload = {
             color:color,
             height:height,
             width:width,

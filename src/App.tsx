@@ -12,6 +12,7 @@ import { AspectRatio } from "./Container/AspectRatio"
 // import { ReusableCounter } from './container/reusableCounter/ReusableCounter'
 import { ColorWrapper } from './Container/ColorWrapper/ColorWrapper'
 import { ShapeMaker } from './Container/ShapeMaker'
+import { ShapeViewer } from './Container/ShapeViewer'
 
 
 ReactDOM.render(
@@ -44,7 +45,7 @@ ReactDOM.render(
                         <tr>
                             <td colSpan={3}>
                                 <h2 style={{ margin: 5, textAlign: 'center' }}>Shapes</h2>
-                                {/*<ShapeViewer />*/}
+                                <ShapeViewer />
                             </td>
                         </tr>
                     </tbody>

@@ -44,7 +44,7 @@ class AspectRatioComponent extends React.Component<Props, States> {
  * Exportable Container
  * connect Component with sotre
  */
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: AppStore.AppState) => {
     return {
         aspectRatio: state.aspectRatio
     } as ConnectedState

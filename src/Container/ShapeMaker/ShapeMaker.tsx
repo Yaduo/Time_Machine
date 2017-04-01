@@ -33,7 +33,8 @@ class ShapeMakerComponent extends React.Component<Props, States> {
     }
 
     render() {
-        var width = this.props.width, height = this.props.height, background = this.props.color;
+        const { width, height, top, left } = this.props
+        const background = this.props.color;
         const color = isDark(background) ? '#fff' : '#000';
         return (
             <div>
@@ -47,9 +48,9 @@ class ShapeMakerComponent extends React.Component<Props, States> {
                 <div>
                     <p>
                         <label>position: </label>
-                        <input style={{ width: 30 }} defaultValue={this.props.top.toString()} onChange={e => this.handleTop(e) } />
+                        <input style={{ width: 30 }} defaultValue={top.toString()} onChange={e => this.handleTop(e) } />
                         <span>, </span>
-                        <input style={{ width: 30 }} defaultValue={this.props.left.toString()} onChange={e => this.handleLeft(e) } />
+                        <input style={{ width: 30 }} defaultValue={left.toString()} onChange={e => this.handleLeft(e) } />
                     </p>
 
                     <button onClick={e => this.props.add(background, height, width, this.state.top, this.state.left) }>
@@ -59,16 +60,16 @@ class ShapeMakerComponent extends React.Component<Props, States> {
             </div>
         );
     }
-    handleTop(e: any) {
-        var top = parseInt(e.target.value);
+    handleTop(e: React.FormEvent<HTMLInputElement>) {
+        const top = parseInt(e.currentTarget.value);
         if (!isNaN(top))
             this.setState({ 
                 top: top,
                 left: this.state.left
             });
     }
-    handleLeft(e: any) {
-        var left = parseInt(e.target.value);
+    handleLeft(e: React.FormEvent<HTMLInputElement>) {
+        const left = parseInt(e.currentTarget.value);
         if (!isNaN(left))
             this.setState({ 
                 top: this.state.top,

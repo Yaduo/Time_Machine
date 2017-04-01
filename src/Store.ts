@@ -3,16 +3,14 @@ import { createStore, applyMiddleware } from "redux"
 import { actionRecorder, actionError } from "./Middleware"
 import { colorWrapperReducer } from './Container/ColorWrapper/Reducer'
 import { shapeMakerReducer } from './Container/ShapeMaker'
-import { ASPECT_RATIO_ACTION_TYPE, aspectRatioReducer, initialAspectRatioState } from './Container/AspectRatio'
+import { aspectRatioReducer, initialAspectRatioState } from './Container/AspectRatio'
+import { shapeViewerReducer } from './Container/ShapeViewer'
 
 const initState: AppStore.AppState = { 
-    headerCounter: 0,
-    footerCounter : 0,
-    dynamicField: {},
     nextShapeId: 0, 
     aspectRatio: initialAspectRatioState,
     color: "#000000", 
-    shapes: [{}] 
+    shapes: [] 
 };
 
 function rootReducer(state:any, action:any, reducers: [any]): any {
@@ -30,7 +28,8 @@ export default createStore<AppStore.AppState>(
         return rootReducer(state, action, [
             aspectRatioReducer,
             colorWrapperReducer,
-            shapeMakerReducer
+            shapeMakerReducer,
+            shapeViewerReducer
         ])
     }, 
 

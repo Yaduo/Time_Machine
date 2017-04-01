@@ -11,7 +11,8 @@ export class NumberPicker extends React.Component<any, any> {
             </p>
         );
     }
-    handleChange(event: any) {
+    
+    handleChange(event: React.FormEvent<HTMLInputElement>) {
         const e = event.target as HTMLInputElement;
         this.props.onChange(parseInt(e.value));
     }

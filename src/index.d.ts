@@ -9,18 +9,24 @@ declare module AppStore {
 	}
 
     interface AppState {
-        headerCounter: number;
-        footerCounter : number,
-        dynamicField: any,
         nextShapeId: number,
         aspectRatio: AspectRatioState,
         color: string // hex color string
-        shapes: any[]
+        shapes: Shape[]
     }
 
     interface AspectRatioState {
         width: number;
         height: number;
     } 
+
+    interface Shape {
+        id: number
+        width: number, 
+        height: number, 
+        color: string,
+        top: number, 
+        left: number
+    }
 
 }
