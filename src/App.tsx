@@ -1,16 +1,17 @@
+
 import './styles/style';
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { Provider } from 'react-redux';
 import { DatePicker } from 'antd';
 import store from './Store'
-import { Hello } from "./components/Hello";        
-import { HeaderCounter } from './container/headerCounter/HeaderCounter'
-import { FooterCounter } from './container/footerCounter/FooterCounter'
-import { AspectRatio } from "./container/aspectRatio/AspectRatio"
-import { ReusableCounter } from './container/reusableCounter/ReusableCounter'
-import { ColorWrapper } from './container/colorWrapper/ColorWrapper'
-import { ShapeMaker } from './container/shapeMaker/ShapeMaker'
+import { Hello } from "./Components/Hello";        
+// import { HeaderCounter } from './container/headerCounter/HeaderCounter'
+// import { FooterCounter } from './container/footerCounter'
+import { AspectRatio } from "./Container/AspectRatio"
+// import { ReusableCounter } from './container/reusableCounter/ReusableCounter'
+import { ColorWrapper } from './Container/ColorWrapper/ColorWrapper'
+import { ShapeMaker } from './Container/ShapeMaker'
 
 
 ReactDOM.render(
@@ -18,11 +19,12 @@ ReactDOM.render(
         <Hello compiler="TypeScript -----++++++ " framework="React" />
         <Provider store={store}> 
             <div>
-                <HeaderCounter framework='World' label ='hello' /> 
-                <FooterCounter framework='World2 ' label ='hello22222' /> 
+                {/*<DatePicker />*/}
+                {/*<FooterCounter framework='World2 ' label ='hello22222' onChange = {()=>{}}/> */}
+                {/*<HeaderCounter framework='World' label ='hello' /> 
                 <ReusableCounter framework='reusable counter' label ='container' field='counter1' step={10} />
                 <ReusableCounter framework='reusable counter 2' label ='container' field='counter2' step={5}  />
-                <DatePicker />
+                */}
 
                 <table>
                     <tbody>

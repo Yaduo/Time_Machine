@@ -1,7 +1,6 @@
 import * as React from "react";
 import { connect, Dispatch } from "react-redux";
-import { isDark } from "../../components/picker/ColorPicker";
-import { AppState } from 'Store'
+import { isDark } from "../../Components/Picker/ColorPicker";
 import { ShapeMakerAction } from './Actions'
 
 type States = {
@@ -81,13 +80,13 @@ class ShapeMakerComponent extends React.Component<Props, States> {
  * exportable 
  * connect Component with sotre and actions
  */
-const mapStateToProps = (state: AppState) => {
+const mapStateToProps = (state:AppStore.AppState) => {
     return {
         width: state.aspectRatio.width, 
         height: state.aspectRatio.height, 
-        color: state.colorHex,
-        top: state.shapeMaker.nextShapeId * 10, 
-        left: state.shapeMaker.nextShapeId * 10 
+        color: state.color,
+        top: state.nextShapeId * 10, 
+        left: state.nextShapeId * 10 
     } as ConnectedState
 } 
 

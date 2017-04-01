@@ -2,6 +2,7 @@ import { actions } from './Store'
 
 export const actionRecorder = (store: any) => (next: any) => (action: any) => {
     console.log("action fired ", action);
+    console.log("Middleware store: ", store.getState());
     actions.push(action)
     next(action) 
 }

@@ -11,45 +11,35 @@ type States = {}
 */ 
 export type ContextProps = {
     framework: string,
-    label: string
+    label: string,
+    counter: number,
+    onChange(num: number): void
 }
-
-/**
- * the Store state (sub-state) connnected by using Component Porps 
-*/ 
-export type ConnectedState = {
-    counter: number 
-}
-
-/**
- * the Porps which will be used in Component to defind the Dispatches
-*/
-export type ConnectedDispatch = {
-    incr: () => void
-    decr: () => void
-}
-
-/**
- * combine the the Store sub-state, Store dispatchs and Context Props in to Component Props
-*/
-type Props = ConnectedState  & ConnectedDispatch & ContextProps;
-
+ 
 /*
  * Counter Component
  */
-export class Counter extends React.Component<Props, States> {
+export class Counter extends React.Component<ContextProps, States> {
     render() {
-        let { counter, incr, decr } = this.props
+        let { counter } = this.props
         return (
             <div className="counter">
                 <p>
                     <label>Counter: { this.props.label} { this.props.framework} </label>
                     <b>#{counter}</b>
                 </p>
-                <button onClick={e => incr()}>INCREMENT</button>
+                <button onClick={ e => this.incr() }> +++ </button>
                 <span style={{ padding: "0 5px" }} />
-                <button onClick={e => decr()}>DECREMENT</button>
+                <button onClick={ e => this.decr() }> --- </button>
             </div>
         );
+    }
+
+    incr() {
+        this.props.onChange(10);
+    }
+
+    decr() {
+       this.props.onChange(-10); 
     }
 }

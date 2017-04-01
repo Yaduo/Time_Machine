@@ -1,6 +1,4 @@
 
-import { Action } from '../../Store'
-
 /*
  * action string
  */
@@ -11,7 +9,7 @@ export const SHAPE_MAKER_ACTION_TYPE = {
 /*
  * action definition
  */
-export class ShapeMakerAction implements Action {
+export class ShapeMakerAction {
 
     type: string;
     payload: string;

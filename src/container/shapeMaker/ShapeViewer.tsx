@@ -1,6 +1,6 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import { isDark } from "../../components/picker/ColorPicker";
+import { isDark } from "../../Components/Picker/ColorPicker";
 
 class ShapeViewer extends React.Component<any, any> {
     constructor(props?: any, context?: any) {

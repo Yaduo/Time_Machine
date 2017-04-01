@@ -1,7 +1,6 @@
 import * as React from "react";
 import { connect, Dispatch } from "react-redux";
-import { ColorPicker } from "../../components/picker/ColorPicker";
-import { AppState } from 'store'
+import { ColorPicker } from "../../Components/Picker/ColorPicker";
 import { ColorWrapperAction } from './Actions'
 
 type States = {}
@@ -9,19 +8,19 @@ type States = {}
 export type ContextProps = { }
 
 export type ConnectedState = {
-    colorHex: string 
+    color: string 
 }
 
 export type ConnectedDispatch = {
-    setColor(colorHex: string): void
+    setColor(color: string): void
 }
 
 type Props = ConnectedState & ConnectedDispatch & ContextProps;
 
 class ColorWrapperComponent extends React.Component<Props, States> {
     render() {
-        const {colorHex, setColor} = this.props
-        return <ColorPicker color={ colorHex } onChange={ setColor } />;
+        const {color, setColor} = this.props
+        return <ColorPicker color={ color } onChange={ setColor } />;
     }
 }
 
@@ -29,15 +28,15 @@ class ColorWrapperComponent extends React.Component<Props, States> {
  * exportable 
  * connect Component with sotre and actions
  */
-const mapStateToProps = (state: AppState) => {
+const mapStateToProps = (state: AppStore.AppState) => {
     return {
-        colorHex: state.colorHex
+        color: state.color
     } as ConnectedState
 } 
 
 const mapDispatchToProps = (dispatch: Dispatch<ConnectedDispatch>) => ({
-    setColor: (colorHex: string) => {
-        dispatch(ColorWrapperAction.colorChange(colorHex));
+    setColor: (color: string) => {
+        dispatch(ColorWrapperAction.colorChange(color));
     }
 }); 
 

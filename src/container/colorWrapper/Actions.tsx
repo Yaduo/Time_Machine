@@ -1,6 +1,4 @@
 
-import { Action } from '../../Store'
-
 /*
  * action string
  */
@@ -11,7 +9,7 @@ export const COLOR_WRAPPER_ACTION_TYPE = {
 /*
  * action definition
  */
-export class ColorWrapperAction implements Action {
+export class ColorWrapperAction {
 
     type: string;
     payload: string;
