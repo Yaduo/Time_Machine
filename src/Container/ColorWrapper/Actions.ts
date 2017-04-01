@@ -4,6 +4,7 @@
  */
 export const COLOR_WRAPPER_ACTION_TYPE = {
     COLOR_CHANGE:'COLOR_CHANGE'
+    
 }
 
 /*

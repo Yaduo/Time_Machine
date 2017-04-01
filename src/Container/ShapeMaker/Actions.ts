@@ -4,7 +4,8 @@
  */
 export const SHAPE_MAKER_ACTION_TYPE = {
     ADD_SHAPE: 'SHAPE_MAKER_ADD_SHAPE'
-}
+    
+} 
 
 /*
  * action definition

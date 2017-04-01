@@ -12,6 +12,7 @@ export function colorWrapperReducer(state:AppStore.AppState , action: ColorWrapp
             
         default:
             return state
+            
     }
 }
 

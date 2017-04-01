@@ -9,6 +9,7 @@ export type ContextProps = { }
 
 export type ConnectedState = {
     color: string 
+    
 }
 
 export type ConnectedDispatch = {

@@ -13,6 +13,7 @@ export function shapeMakerReducer(state: AppStore.AppState , action: ShapeMakerA
             return Object.assign({}, state, { nextShapeId: id + 1, shapes: [...state.shapes, shape] });
         default:
             return state
+            
     }
 }
 

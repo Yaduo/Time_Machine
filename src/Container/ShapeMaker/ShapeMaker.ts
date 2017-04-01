@@ -29,6 +29,7 @@ class ShapeMakerComponent extends React.Component<Props, States> {
     constructor(props?: any, context?: any) {
         super(props, context);
         this.state = { top: props.top, left: props.left };
+        
     }
 
     render() {
