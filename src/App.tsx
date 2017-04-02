@@ -4,16 +4,13 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { Provider } from 'react-redux';
 import { DatePicker } from 'antd';
-import store from './Store'
+import store, { initState } from './Store'
 import { Hello } from "./Components/Hello";        
-// import { HeaderCounter } from './container/headerCounter/HeaderCounter'
-// import { FooterCounter } from './container/footerCounter'
 import { AspectRatio } from "./Container/AspectRatio"
-// import { ReusableCounter } from './container/reusableCounter/ReusableCounter'
 import { ColorWrapper } from './Container/ColorWrapper/ColorWrapper'
 import { ShapeMaker } from './Container/ShapeMaker'
 import { ShapeViewer } from './Container/ShapeViewer'
-
+import { HistoryPlayer } from './Container/HistoryPlayer'
 
 ReactDOM.render(
     <div>
@@ -21,12 +18,6 @@ ReactDOM.render(
         <Provider store={store}> 
             <div>
                 {/*<DatePicker />*/}
-                {/*<FooterCounter framework='World2 ' label ='hello22222' onChange = {()=>{}}/> */}
-                {/*<HeaderCounter framework='World' label ='hello' /> 
-                <ReusableCounter framework='reusable counter' label ='container' field='counter1' step={10} />
-                <ReusableCounter framework='reusable counter 2' label ='container' field='counter2' step={5}  />
-                */}
-
                 <table>
                     <tbody>
                         <tr>
@@ -38,8 +29,9 @@ ReactDOM.render(
                                 <h2>Preview</h2>
                                 <ShapeMaker />
                             </td>
-                            <td style={{ verticalAlign: 'bottom' }}>
-                                {/*<ActionPlayer store={store} actions={actions} defaultState={defaultState} />*/}
+                            <td style={{verticalAlign:"top"}}>
+                                <h2>History</h2>
+                                <HistoryPlayer defaultState={initState} />
                             </td>
                         </tr>
                         <tr>

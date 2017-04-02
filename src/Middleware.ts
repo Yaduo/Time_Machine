@@ -1,15 +1,10 @@
-import { actions } from './Store'
-
-export const actionRecorder = (store: any) => (next: any) => (action: any) => {
-    console.log("action fired ", action);
-    console.log("Middleware store: ", store.getState());
-    actions.push(action)
-    next(action) 
-}
+import { Store , Dispatch} from 'react-redux'
 
 // can be used in HTTP request error
-export const actionError = (store: any) => (next: any) => (action: any) => {
+export const actionLog = (store: Store<AppStore.State>) => (next: Dispatch<AppStore.State>) => (action: AppStore.Action) => {
     try {
+        //console.log("action fired ", action);
+        //console.log("Middleware store: ", store.getState());
         next(action) 
     } catch (e) {
         console.log("Action Error ! ", e)

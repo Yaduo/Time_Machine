@@ -29,7 +29,7 @@ class ColorWrapperComponent extends React.Component<Props, States> {
  * exportable 
  * connect Component with sotre and actions
  */
-const mapStateToProps = (state: AppStore.AppState) => {
+const mapStateToProps = (state: AppStore.State) => {
     return {
         color: state.color
     } as ConnectedState

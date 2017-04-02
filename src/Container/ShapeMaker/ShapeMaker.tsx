@@ -82,7 +82,7 @@ class ShapeMakerComponent extends React.Component<Props, States> {
  * exportable 
  * connect Component with sotre and actions
  */
-const mapStateToProps = (state:AppStore.AppState) => {
+const mapStateToProps = (state:AppStore.State) => {
     return {
         width: state.aspectRatio.width, 
         height: state.aspectRatio.height, 

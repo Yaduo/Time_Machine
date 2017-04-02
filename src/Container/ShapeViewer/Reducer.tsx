@@ -4,7 +4,7 @@ import { SHAPE_VIEWER_ACTION_TYPE, ShapeViewerAction } from './Actions'
 /**
  * sub-reducer for AspectRatio
  */
-export function shapeViewerReducer(state: AppStore.AppState , action: ShapeViewerAction): AppStore.AppState {
+export function shapeViewerReducer(state: AppStore.State , action: ShapeViewerAction): AppStore.State {
     switch (action.type) {
 
         case SHAPE_VIEWER_ACTION_TYPE.UPDATE:

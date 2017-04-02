@@ -72,7 +72,7 @@ class ShapeViewerComponent extends React.Component<Props, States> {
     }
 }
 
-const mapStateToProps = (state:AppStore.AppState) => {
+const mapStateToProps = (state:AppStore.State) => {
     return {
         shapes: state.shapes
     } as ConnectedState

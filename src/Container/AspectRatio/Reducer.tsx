@@ -6,7 +6,7 @@ export const initialAspectRatioState: AppStore.AspectRatioState = {
     height: 100
 }
 
-export function aspectRatioReducer(state:any, action: AppStore.Action): AppStore.AppState {
+export function aspectRatioReducer(state:AppStore.State, action: AppStore.Action): AppStore.State {
     switch (action.type) {
 
         case ASPECT_RATIO_ACTION_TYPE.HEIGHT_CHANGE:
