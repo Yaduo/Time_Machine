@@ -9,20 +9,5 @@ export const HISTORY_PLAYER_ACTION_TYPE = {
 /*
  * action definition
  */
-export class HistoryPlayerAction implements AppStore.Action {
-
-    type: string;
-    payload: AppStore.State;
-    
-    constructor(type:string, payload:AppStore.State) {
-        this.type = type;
-        this.payload = payload
-    }
-
-    ////////////////////////// action functions /////////////////////////////////
-
-    static loadState = (state: AppStore.State) => {
-        return Object.assign({}, new HistoryPlayerAction(HISTORY_PLAYER_ACTION_TYPE.LOAD_STATE, state));
-    }
-}
+export const historyPlayerLoadStateAction = (state: AppStore.State) => { return { type: HISTORY_PLAYER_ACTION_TYPE.LOAD_STATE, payload: state } as AppStore.Action}
 

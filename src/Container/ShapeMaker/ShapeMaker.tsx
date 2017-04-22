@@ -1,7 +1,7 @@
 import * as React from "react";
 import { connect, Dispatch } from "react-redux";
 import { isDark } from "../../Components/Picker/ColorPicker";
-import { ShapeMakerAction } from './Actions'
+import { shapeMakerAddShapeAction } from './Actions'
 
 type States = {
     top:number,
@@ -94,7 +94,7 @@ const mapStateToProps = (state:AppStore.State) => {
 
 const mapDispatchToProps = (dispatch: Dispatch<ConnectedDispatch>) => ({
     add: (color:string, height:number, width:number, top:number, left:number) => {
-        dispatch(ShapeMakerAction.addShape(color, height, width, top, left));
+        dispatch(shapeMakerAddShapeAction(color, height, width, top, left));
     }
 }); 
 

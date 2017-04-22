@@ -1,7 +1,7 @@
 import * as React from "react";
 import { connect, Dispatch } from "react-redux";
 import { ColorPicker } from "../../Components/Picker/ColorPicker";
-import { ColorWrapperAction } from './Actions'
+import { colorWrapperColorChangeAction } from './Actions'
 
 type States = {}
 
@@ -37,7 +37,7 @@ const mapStateToProps = (state: AppStore.State) => {
 
 const mapDispatchToProps = (dispatch: Dispatch<ConnectedDispatch>) => ({
     setColor: (color: string) => {
-        dispatch(ColorWrapperAction.colorChange(color));
+        dispatch(colorWrapperColorChangeAction(color));
     }
 }); 
 

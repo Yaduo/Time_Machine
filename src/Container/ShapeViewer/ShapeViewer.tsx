@@ -1,7 +1,7 @@
 import * as React from "react";
 import { connect, Dispatch } from "react-redux";
 import { isDark } from "../../Components/Picker/ColorPicker";
-import { ShapeViewerAction } from './Actions'
+import { shapeViewerUpdateShapeAction } from './Actions'
 
 type States = { 
     isDragging: boolean
@@ -80,7 +80,7 @@ const mapStateToProps = (state:AppStore.State) => {
 
 const mapDispatchToProps = (dispatch: Dispatch<ConnectedDispatch>) => ({
     updateShape: (id: number, top: number, left: number) => {
-        dispatch(ShapeViewerAction.updateShape(id, top, left));
+        dispatch(shapeViewerUpdateShapeAction(id, top, left));
     }
 }); 
 

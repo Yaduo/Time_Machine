@@ -1,7 +1,7 @@
 import './Style.less';
 import * as React from 'react';
 import { connect, Dispatch } from 'react-redux';
-import { AspectRatioAction } from "./Actions";  
+import { aspectRatioHeightChangeAction, aspectRatioWidthChangeAction } from "./Actions";  
 import { Counter } from '../../Components/Counter/Counter' 
 
 
@@ -52,10 +52,10 @@ const mapStateToProps = (state: AppStore.State) => {
 
 const mapHeightCounterDispatchToProps = (dispatch: Dispatch<ConnectedDispatch>) => ({
     heightChange: (n: number) => {
-        dispatch(AspectRatioAction.heightChange(n));
+        dispatch(aspectRatioHeightChangeAction(n));
     },
     widthChange: (n: number) => {
-        dispatch(AspectRatioAction.widthChange(n));
+        dispatch(aspectRatioWidthChangeAction(n));
     }
 }); 
 

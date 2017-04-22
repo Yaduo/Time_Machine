@@ -1,5 +1,5 @@
 
-import { ASPECT_RATIO_ACTION_TYPE, AspectRatioAction } from './Actions'
+import { ASPECT_RATIO_ACTION_TYPE } from './Actions'
 
 export const initialAspectRatioState: AppStore.AspectRatioState = {
     width: 100,

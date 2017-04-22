@@ -10,20 +10,4 @@ export const COLOR_WRAPPER_ACTION_TYPE = {
 /*
  * action definition
  */
-export class ColorWrapperAction {
-
-    type: string;
-    payload: string;
-    
-    constructor(type:string, payload:string) {
-        this.type = type;
-        this.payload = payload
-    }
-
-    ////////////////////////// action functions /////////////////////////////////
-
-    static colorChange = (value: string) => {
-        return Object.assign({}, new ColorWrapperAction(COLOR_WRAPPER_ACTION_TYPE.COLOR_CHANGE, value));
-    }
-}
-
+export const colorWrapperColorChangeAction = (value: string) => { return { type: COLOR_WRAPPER_ACTION_TYPE.COLOR_CHANGE, payload: value } as AppStore.Action}

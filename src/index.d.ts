@@ -8,6 +8,28 @@ declare module AppStore {
         readonly field?: string // point to a dynamic field in store
 	}
 
+    interface ShapeMakeActionPayload {
+        color: String,
+        height: number,
+        width: number,
+        top: number,
+        left: number
+    }
+
+    interface ShapeMakeAction extends Action {
+        readonly payload?: ShapeMakeActionPayload;
+    }
+
+    interface ShapeViewerPayload {
+        id: number,
+        top: number,
+        left: number
+    }
+
+    interface ShapeViewerAction extends Action {
+        readonly payload?: ShapeViewerPayload;
+    }
+
     interface State {
         nextShapeId: number,
         aspectRatio: AspectRatioState,

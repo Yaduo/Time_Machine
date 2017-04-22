@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { connect , Dispatch} from 'react-redux';
-import { HistoryPlayerAction } from './Actions'
+import { historyPlayerLoadStateAction } from './Actions'
 
 type States = { }
 
@@ -80,27 +80,27 @@ const mapStateToProps = (state: AppStore.State) => {
 
 const mapHeightCounterDispatchToProps = (dispatch: Dispatch<ConnectedDispatch>) => ({
     replayStates: (history: AppStore.StoreHistory) => {
-        history.states.map((state, index) => setTimeout(() => dispatch(HistoryPlayerAction.loadState(state)), 10 * index))
+        history.states.map((state, index) => setTimeout(() => dispatch(historyPlayerLoadStateAction(state)), 10 * index))
     },
     
     resetState: (defaultState: AppStore.State, history: AppStore.StoreHistory) => {
-        dispatch(HistoryPlayerAction.loadState(defaultState));
+        dispatch(historyPlayerLoadStateAction(defaultState));
         history.reset();
     },
 
     prevState: (history: AppStore.StoreHistory) => {
         const state = history.prev();
-        dispatch(HistoryPlayerAction.loadState(state));
+        dispatch(historyPlayerLoadStateAction(state));
     },
 
     nextState: (history: AppStore.StoreHistory) => {
         const state = history.next();       
-        dispatch(HistoryPlayerAction.loadState(state));
+        dispatch(historyPlayerLoadStateAction(state));
     },
 
     goToState: (history: AppStore.StoreHistory, index: number) => {
         const state = history.goTo(index)
-        dispatch(HistoryPlayerAction.loadState(state));
+        dispatch(historyPlayerLoadStateAction(state));
     }
 }); 
 

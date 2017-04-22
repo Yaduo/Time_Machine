@@ -1,10 +1,10 @@
 
-import { SHAPE_MAKER_ACTION_TYPE, ShapeMakerAction } from './Actions'
+import { SHAPE_MAKER_ACTION_TYPE } from './Actions'
 
 /**
  * sub-reducer for AspectRatio
  */
-export function shapeMakerReducer(state: AppStore.State , action: ShapeMakerAction): AppStore.State {
+export function shapeMakerReducer(state: AppStore.State , action: AppStore.ShapeMakeAction): AppStore.State {
     switch (action.type) {
 
         case SHAPE_MAKER_ACTION_TYPE.ADD_SHAPE:
