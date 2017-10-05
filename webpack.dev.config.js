@@ -9,7 +9,7 @@ const metadata = {
 }
 
 WebpackConfig.devServer = {
-    inline: false,
+    inline: true,
     port: metadata.port,
     host: metadata.host
 }

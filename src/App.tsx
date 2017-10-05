@@ -3,7 +3,6 @@ import './Styles/Style';
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { Provider } from 'react-redux';
-import { DatePicker } from 'antd';
 import store, { initState } from './Store'
 import { Hello } from "./Components/Hello";        
 import { AspectRatio } from "./Container/AspectRatio"
@@ -17,7 +16,6 @@ ReactDOM.render(
         <Hello compiler="TypeScript -----++++++ " framework="React" />
         <Provider store={store}> 
             <div>
-                {/*<DatePicker />*/}
                 <table>
                     <tbody>
                         <tr>

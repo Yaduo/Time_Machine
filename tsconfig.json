@@ -12,7 +12,8 @@
         "noImplicitAny": true,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
-        "allowSyntheticDefaultImports": true
+        "allowSyntheticDefaultImports": true,
+        "lib": ["es2017", "dom"]
     },
     "exclude": [
         "node_modules"
