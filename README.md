@@ -3,8 +3,8 @@ A shape recorder implement in React + Redux + TypeScript
 
 
 ## how to run
-npm install
-npm start
+* npm install
+* npm start
 
 ## Demo
 
